@@ -1,8 +1,5 @@
 module.exports = {
-	plugins: [
-        'promise'
-    ],
-	extends: ['airbnb-base', 'plugin:promise/recommended'],
+	extends: ['airbnb-base'],
 	env: {
 		node: true
 	},
@@ -14,8 +11,6 @@ module.exports = {
 				objects: 'never',
 				functions: 'never',
 			},
-		],
-		// 'promise/no-nesting': 'off',
-		'promise/avoid-new': 'off',
+		]
 	}
 };
