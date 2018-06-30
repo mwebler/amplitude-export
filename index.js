@@ -38,6 +38,12 @@ function parseGzip(entry) {
 }
 
 class Amplitude {
+  /**
+   * Configure a new API provided key and secret
+   * @param {Object} config API configuration
+   * @param  {string} config.apiKey Amplitude API key
+   * @param  {string} config.apiSecret Amplitude API secret
+   */
   constructor({ apiKey, apiSecret }) {
     if (!apiKey || !apiSecret) {
       throw new Error('apiKey and apiSecret parameters are required.');
@@ -47,6 +53,13 @@ class Amplitude {
     this.apiSecret = apiSecret;
   }
 
+  /**
+   * Download the ZIP file with the events for data range, parse it and return as JSON
+   * @param  {(string|Date)} start the start of the range. Can be a ISO string of a Date object
+   * @param  {(string|Date)} end the end of the range. Can be a ISO string of a Date object
+   * @returns {Array} An JSON array with the event list
+   * @async
+   */
   export(start, end) {
     return new Promise((resolve, reject) => {
       if (!start || !end) {
